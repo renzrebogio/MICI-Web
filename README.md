@@ -15,8 +15,32 @@ cd MICI-Web
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Check the branch you're on, you must be on main before editing:
+git branch
+
+# If it shows * main → you're on main already. If not, switch with:
+git checkout main
+
+# Step 5: Make sure main is up to date. Always pull the latest code before working, to avoid conflicts:
+git pull origin main
+
+# Step 6: Start the development server with auto-reloading and an instant preview.
 npm run dev
+
+# Step 7: Make you're changes. You can now edit code, add files, etc.
+
+ # Step 8: Stage the changes. Add modified files to the “staging area”:
+git add .
+
+# (. means add everything changed. They can also specify files, e.g. git add src/App.js.)
+
+# Step 9:  Commit the changes. Save the staged changes with a message:
+git commit -m "Update hero section with new animation"
+
+# Step 10:  Push to origin/main. Now send you're changes up to GitHub:
+git push origin main
+
+
 ```
 
 **Edit a file directly in GitHub**
