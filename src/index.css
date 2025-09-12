@@ -17,19 +17,23 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 200 35% 15%;
 
-    /* Primary - Dark Teal #0E4D64 */
-    --primary: 200 73% 22%;
+    /* Primary - Light Teal */
+    --primary: 190 55% 82%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Light version of primary */
-    --secondary: 200 45% 95%;
+    /* Secondary - Dark Teal */
+    --secondary: 190 75% 10%;
     --secondary-foreground: 200 73% 22%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Accent - Sky Blue #40C4FF */
-    --accent: 199 100% 62%;
+    /* Tertiary - Teal*/
+    --tertiary: 180 60% 50%;
+    --tertiary-foreground: 0 0% 100%;
+
+    /* Accent - Medj Teal */
+    --accent: 178 60% 20%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -40,11 +44,11 @@ All colors MUST be HSL.
     --ring: 199 100% 62%;
 
     /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(200 73% 22%), hsl(200 85% 35%));
-    --gradient-accent: linear-gradient(135deg, hsl(199 100% 62%), hsl(199 100% 72%));
-    --gradient-hero: linear-gradient(135deg, hsl(200 73% 22%) 0%, hsl(199 100% 62%) 100%);
-    --shadow-glow: 0 0 40px hsl(199 100% 62% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(200 73% 22% / 0.2);
+    --gradient-primary: linear-gradient(135deg, #5bfbe0, #1f7e82);
+    --gradient-accent: linear-gradient(135deg, #005b4a, #00ffea);
+    --gradient-hero: linear-gradient(135deg, #67ebff 0%, #2e5758 100%);
+    --shadow-glow: 0 0 40px #fff56c;
+    --shadow-card: 0 10px 30px -10px #1b4243;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;

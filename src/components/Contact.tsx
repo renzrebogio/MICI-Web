@@ -1,59 +1,62 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
-import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const Contact = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const offices = [
     {
-      location: 'Metro Manila',
-      phone: '(02) 8867-2888',
-      address: '3/F, The Athenaeum Building, 160 L.P. Leviste St., Salcedo Village, Makati, Metro Manila, 1603',
-      isMain: true
+      location: "Metro Manila",
+      phone: "(02) 8867-2888",
+      address:
+        "3/F, The Athenaeum Building, 160 L.P. Leviste St., Salcedo Village, Makati, Metro Manila, 1603",
+      isMain: true,
     },
     {
-      location: 'Cebu',
-      phone: '(032) 233 7911',
-      address: 'Cebu Office Location',
-      isMain: false
+      location: "Cebu",
+      phone: "(032) 233 7911",
+      address: "Cebu Office Location",
+      isMain: false,
     },
     {
-      location: 'Bacolod',
-      phone: '(034) 434 835',
-      address: 'Bacolod Office Location',
-      isMain: false
+      location: "Bacolod",
+      phone: "(034) 434 835",
+      address: "Bacolod Office Location",
+      isMain: false,
     },
     {
-      location: 'Davao',
-      phone: '(082) 227 5731',
-      address: 'Davao Office Location',
-      isMain: false
-    }
+      location: "Davao",
+      phone: "(082) 227 5731",
+      address: "Davao Office Location",
+      isMain: false,
+    },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission
   };
 
@@ -63,9 +66,9 @@ const Contact = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -75,9 +78,9 @@ const Contact = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] as const
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
+      },
+    },
   };
 
   return (
@@ -94,7 +97,7 @@ const Contact = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-accent mb-6"
           >
             Get In Touch
           </motion.h2>
@@ -110,7 +113,8 @@ const Contact = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Ready to protect what matters most? Contact us today for a personalized insurance quote
+            Ready to protect what matters most? Contact us today for a
+            personalized insurance quote
           </motion.p>
         </motion.div>
 
@@ -123,14 +127,16 @@ const Contact = () => {
           >
             <motion.div variants={itemVariants}>
               <Card className="p-8 shadow-card border-0 bg-card/80 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold text-primary mb-6">Send us a Message</h3>
+                <h3 className="text-2xl font-bold text-accent mb-6">
+                  Send us a Message
+                </h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
                     variants={itemVariants}
                     className="grid md:grid-cols-2 gap-4"
                   >
                     <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
+                      <label className="block text-sm font-medium text-accent mb-2">
                         Full Name
                       </label>
                       <Input
@@ -143,7 +149,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-primary mb-2">
+                      <label className="block text-sm font-medium text-accent mb-2">
                         Phone Number
                       </label>
                       <Input
@@ -157,7 +163,7 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label className="block text-sm font-medium text-primary mb-2">
+                    <label className="block text-sm font-medium text-accent mb-2">
                       Email Address
                     </label>
                     <Input
@@ -172,7 +178,7 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label className="block text-sm font-medium text-primary mb-2">
+                    <label className="block text-sm font-medium text-accent mb-2">
                       Message
                     </label>
                     <Textarea
@@ -195,7 +201,7 @@ const Contact = () => {
                       <motion.div
                         initial={{ x: 0 }}
                         whileHover={{ x: 5 }}
-                        transition={{ type: 'spring', stiffness: 400 }}
+                        transition={{ type: "spring", stiffness: 400 }}
                       >
                         <Send className="ml-2 h-5 w-5" />
                       </motion.div>
@@ -216,7 +222,9 @@ const Contact = () => {
             {/* Main Contact Info */}
             <motion.div variants={itemVariants}>
               <Card className="p-6 shadow-card border-0 bg-gradient-primary text-primary-foreground">
-                <h3 className="text-xl font-bold mb-4 text-accent">Quick Contact</h3>
+                <h3 className="text-xl font-bold mb-4 text-accent">
+                  Quick Contact
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="h-5 w-5 text-accent mr-3" />
@@ -232,7 +240,9 @@ const Contact = () => {
 
             {/* Office Locations */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-bold text-primary mb-4">Our Offices</h3>
+              <h3 className="text-xl font-bold text-accent mb-4">
+                Our Offices
+              </h3>
               <div className="space-y-4">
                 {offices.map((office, index) => (
                   <motion.div
@@ -241,20 +251,26 @@ const Contact = () => {
                     whileHover={{ scale: 1.02, x: 5 }}
                     className="group"
                   >
-                    <Card className={`p-4 shadow-card border-0 transition-all duration-300 hover:shadow-glow ${
-                      office.isMain ? 'bg-secondary/50' : 'bg-card/80'
-                    } backdrop-blur-sm`}>
+                    <Card
+                      className={`p-4 shadow-card border-0 transition-all duration-300 hover:shadow-glow ${
+                        office.isMain ? "bg-tertiary/50" : "bg-card/80"
+                      } backdrop-blur-sm`}
+                    >
                       <div className="flex items-start space-x-3">
                         <div className="flex-shrink-0">
-                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                            office.isMain ? 'bg-gradient-accent text-primary-foreground' : 'bg-secondary text-primary'
-                          }`}>
+                          <div
+                            className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                              office.isMain
+                                ? "bg-gradient-accent text-primary-foreground"
+                                : "bg-tertiary text-accent"
+                            }`}
+                          >
                             <MapPin className="h-5 w-5" />
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-primary group-hover:text-accent transition-colors">
-                            {office.location} {office.isMain && '(Main Office)'}
+                          <h4 className="font-semibold text-accent group-hover:text-accent transition-colors">
+                            {office.location} {office.isMain && "(Main Office)"}
                           </h4>
                           <div className="flex items-center text-sm text-muted-foreground mt-1">
                             <Phone className="h-4 w-4 mr-1" />
@@ -282,10 +298,12 @@ const Contact = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-16"
         >
-          <Card className="h-64 bg-gradient-to-br from-secondary to-muted border-0 shadow-card flex items-center justify-center">
-            <div className="text-center text-muted-foreground">
+          <Card className="h-64 bg-gradient-to-br from-accent to-tertiary border-0 shadow-card flex items-center justify-center">
+            <div className="text-center text-primary-foreground">
               <MapPin className="h-12 w-12 mx-auto mb-4 text-accent" />
-              <p className="text-lg font-semibold">Interactive Map Coming Soon</p>
+              <p className="text-lg font-semibold">
+                Interactive Map Coming Soon
+              </p>
               <p className="text-sm">Find our nearest office location</p>
             </div>
           </Card>

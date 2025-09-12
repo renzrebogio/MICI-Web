@@ -1,34 +1,42 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' }
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Claims', href: '#' },
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' }
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
+    { name: "Claims", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
   ];
 
   const services = [
-    'Motor Car Insurance',
-    'Property Insurance',
-    'Personal Accident',
-    'Marine/Cargo Insurance',
-    'Comprehensive Liability',
-    'Surety Bonds'
+    "Motor Car Insurance",
+    "Property Insurance",
+    "Personal Accident",
+    "Marine/Cargo Insurance",
+    "Comprehensive Liability",
+    "Surety Bonds",
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-secondary text-primary-foreground">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -41,20 +49,14 @@ const Footer = () => {
               viewport={{ once: true }}
               className="lg:col-span-1"
             >
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center">
-                  <div className="w-8 h-8 bg-primary-foreground rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 bg-accent rounded-full"></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold text-xl">MICI</div>
-                  <div className="text-sm opacity-80">Insurance</div>
-                </div>
-              </div>
+              <img
+                src="src\images\MICI_Logo.png"
+                alt="Insurance Logo"
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-                Protecting Filipino families and businesses for over 87 years with comprehensive 
-                insurance solutions you can trust.
+                Protecting Filipino families and businesses for over 87 years
+                with comprehensive insurance solutions you can trust.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -79,7 +81,9 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-lg mb-6 text-accent">Quick Links</h3>
+              <h3 className="font-bold text-lg mb-6 text-accent">
+                Quick Links
+              </h3>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <motion.li
@@ -91,7 +95,7 @@ const Footer = () => {
                   >
                     <a
                       href={link.href}
-                      className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 flex items-center group"
+                      className="text-primary-foreground/80 hover:text-tertiary transition-colors duration-300 flex items-center group"
                     >
                       <motion.span
                         initial={{ x: 0 }}
@@ -113,7 +117,9 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-lg mb-6 text-accent">Our Services</h3>
+              <h3 className="font-bold text-lg mb-6 text-accent">
+                Our Services
+              </h3>
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <motion.li
@@ -123,7 +129,7 @@ const Footer = () => {
                     transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <div className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 cursor-pointer flex items-center group">
+                    <div className="text-primary-foreground/80 hover:text-tertiary transition-colors duration-300 cursor-pointer flex items-center group">
                       <div className="w-1 h-1 bg-accent rounded-full mr-3 opacity-60"></div>
                       <motion.span
                         initial={{ x: 0 }}
@@ -153,8 +159,10 @@ const Footer = () => {
                 >
                   <MapPin className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
                   <div className="text-primary-foreground/80 text-sm leading-relaxed">
-                    3/F, The Athenaeum Building<br />
-                    160 L.P. Leviste St., Salcedo Village<br />
+                    3/F, The Athenaeum Building
+                    <br />
+                    160 L.P. Leviste St., Salcedo Village
+                    <br />
                     Makati, Metro Manila, 1603
                   </div>
                 </motion.div>
@@ -163,14 +171,18 @@ const Footer = () => {
                   className="flex items-center space-x-3 transition-transform duration-300"
                 >
                   <Phone className="h-5 w-5 text-accent" />
-                  <span className="text-primary-foreground/80">(02) 8867-2888</span>
+                  <span className="text-primary-foreground/80">
+                    (02) 8867-2888
+                  </span>
                 </motion.div>
                 <motion.div
                   whileHover={{ x: 5 }}
                   className="flex items-center space-x-3 transition-transform duration-300"
                 >
                   <Mail className="h-5 w-5 text-accent" />
-                  <span className="text-primary-foreground/80">inquiry@miciph.com</span>
+                  <span className="text-primary-foreground/80">
+                    inquiry@miciph.com
+                  </span>
                 </motion.div>
               </div>
             </motion.div>
@@ -187,17 +199,27 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-primary-foreground/60 text-sm text-center md:text-left">
-              © 2024 Metropolitan Insurance Company Inc. All rights reserved.<br />
+              © 2024 Metropolitan Insurance Company Inc. All rights reserved.
+              <br />
               Certificate of Authority No. 2019/93-R.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors duration-300">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors duration-300">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
+              >
                 Terms of Service
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors duration-300">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
+              >
                 Sitemap
               </a>
             </div>
