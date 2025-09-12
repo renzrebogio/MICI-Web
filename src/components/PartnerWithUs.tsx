@@ -38,39 +38,40 @@ const PartnerWithUs = () => {
   const getCardPosition = (position) => {
     switch (position) {
       case 'top':
-        return 'absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[30%]';
+        return 'absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[20%]';
       case 'right':
-        return 'absolute right-0 top-1/2 transform translate-x-[10%] -translate-y-1/2';
+        return 'absolute right-0 top-1/2 transform translate-x-[5%] -translate-y-1/2';
       case 'bottom':
-        return 'absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[30%]';
+        return 'absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[20%]';
       case 'left':
-        return 'absolute left-0 top-1/2 transform -translate-x-[10%] -translate-y-1/2';
+        return 'absolute left-0 top-1/2 transform -translate-x-[5%] -translate-y-1/2';
       default:
         return '';
     }
   };
 
   const getConnectorLine = (position) => {
-    const baseClasses = "absolute bg-gradient-to-r from-teal-400 to-teal-600";
-    switch (position) {
-      case 'top':
-        return `${baseClasses} w-1 h-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-32`;
-      case 'right':
-        return `${baseClasses} h-1 w-16 right-1/2 top-1/2 transform translate-x-32 -translate-y-1/2`;
-      case 'bottom':
-        return `${baseClasses} w-1 h-16 left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-32`;
-      case 'left':
-        return `${baseClasses} h-1 w-16 left-1/2 top-1/2 transform -translate-x-32 -translate-y-1/2`;
-      default:
-        return '';
-    }
-  };
+  const baseClasses = "absolute bg-gradient-to-r from-teal-400 to-teal-600";
+  switch (position) {
+    case 'top':
+      return `${baseClasses} w-1 h-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-32`;
+    case 'right':
+      return `${baseClasses} h-1 w-32 right-1/2 top-1/2 transform translate-x-40 -translate-y-1/2`; 
+    case 'bottom':
+      return `${baseClasses} w-1 h-16 left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-32`;
+    case 'left':
+      return `${baseClasses} h-1 w-32 left-1/2 top-1/2 transform -translate-x-40 -translate-y-1/2`; 
+    default:
+      return '';
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-teal-50 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <h2 className="text-5xl font-bold text-slate-800 mb-4">
             Why Partner with Us?
           </h2>
@@ -149,7 +150,7 @@ const PartnerWithUs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-24">
           <button className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-teal-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
             Start Your Partnership Today
           </button>

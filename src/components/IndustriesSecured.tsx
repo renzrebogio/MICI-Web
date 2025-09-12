@@ -172,7 +172,7 @@ const IndustriesSlider = () => {
 
                 {/* Content */}
                 <div className="relative h-full flex items-center justify-between p-8 md:p-12">
-                  <div className="flex-1 max-w-2xl">
+                  <div className="flex-1 max-w-2xl ml-16 md:ml-20">
                     <motion.div
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
@@ -221,21 +221,21 @@ const IndustriesSlider = () => {
 
           {/* Navigation Arrows */}
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
             <ChevronLeft size={24} />
+            </motion.div>
           </motion.button>
 
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
             <ChevronRight size={24} />
+            </motion.div>
           </motion.button>
 
           {/* Dot Indicators */}
