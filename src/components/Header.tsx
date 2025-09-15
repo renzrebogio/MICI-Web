@@ -34,7 +34,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <img
-            src="src\images\MICI_Logo.png"
+            src="MICI_Logo.png"
             alt="Insurance Logo"
             className="h-12 w-auto"
           />

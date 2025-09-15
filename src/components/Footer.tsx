@@ -50,7 +50,7 @@ const Footer = () => {
               className="lg:col-span-1"
             >
               <img
-                src="src\images\MICI_Logo.png"
+                src="MICI_Logo.png"
                 alt="Insurance Logo"
                 className="h-12 w-auto mb-4"
               />
