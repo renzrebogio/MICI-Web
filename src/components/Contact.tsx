@@ -195,7 +195,7 @@ const Contact = () => {
                   <motion.div variants={itemVariants}>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-accent hover:bg-accent/90 text-primary-foreground font-semibold py-3 rounded-xl shadow-glow hover:animate-glow transition-all duration-300 group"
+                      className="w-full bg-gradient-accent hover:bg-accent/90 text-primary-foreground font-semibold py-3 rounded-xl shadow-card hover:animate-glow transition-all duration-300 group"
                     >
                       Send Message
                       <motion.div

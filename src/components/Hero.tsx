@@ -100,7 +100,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl shadow-glow hover:animate-glow group"
+                className="bg-accent hover:bg-accent/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl shadow-card hover:animate-glow group"
               >
                 Get Your Quote
                 <motion.div

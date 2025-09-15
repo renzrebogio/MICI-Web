@@ -45,10 +45,11 @@ All colors MUST be HSL.
 
     /* Custom design tokens */
     --gradient-primary: linear-gradient(135deg, #5bfbe0, #1f7e82);
+    --gradient-secondary: linear-gradient(90deg, #d0d6d8, #ffffff);
     --gradient-accent: linear-gradient(135deg, #005b4a, #00ffea);
     --gradient-hero: linear-gradient(135deg, #67ebff 0%, #2e5758 100%);
     --shadow-glow: 0 0 40px #fff56c;
-    --shadow-card: 0 10px 30px -10px #1b4243;
+    --shadow-card: 0 10px 30px -10px #00c8ff;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;
