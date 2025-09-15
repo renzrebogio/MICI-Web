@@ -73,7 +73,7 @@ const PartnerWithUs = () => {
         {/* Header */}
         <div className="text-center mb-24">
           <h2 className="text-5xl font-bold text-slate-800 mb-4">
-            Why Partner with Us?
+            WHY PARTNER WITH US?
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Discover the key advantages that make us your ideal insurance partner

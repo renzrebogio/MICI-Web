@@ -99,7 +99,7 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-accent mb-6"
           >
-            Get In Touch
+            GET IN TOUCH
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}

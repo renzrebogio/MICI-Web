@@ -196,7 +196,7 @@ const Services = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-accent mb-6"
           >
-            Our Insurance Products
+            OUR INSURANCE PRODUCTS
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}

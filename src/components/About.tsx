@@ -77,8 +77,8 @@ const About = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-accent mb-6"
           >
-            <div> About </div> <br />
-            Metropolitan Insurance
+            <div> ABOUT </div> <br />
+            METROPOLITAN INSURANCE
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -196,7 +196,7 @@ const About = () => {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <h3 className="text-3xl md:text-4xl font-bold text-accent text-center mb-12">
-            Our Core Values
+            OUR CORE VALUES
           </h3>
 
           <motion.div

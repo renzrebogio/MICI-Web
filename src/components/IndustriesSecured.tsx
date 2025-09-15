@@ -86,13 +86,13 @@ const IndustriesSlider = () => {
     }
   ];
 
-  // Auto-slide functionality
+  // Auto-slide functionality with 3-second delay (matching reference)
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % industries.length);
-    }, 5000);
+    }, 3000); // Changed to 3000ms to match reference
 
     return () => clearInterval(timer);
   }, [isAutoPlaying, industries.length]);
@@ -128,8 +128,8 @@ const IndustriesSlider = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
           >
-            Industries That{' '}
-            <span className="text-accent">MICI Secures</span>
+            INDUSTRIES THAT{' '}
+            <span className="text-accent">MICI SECURES</span>
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -143,7 +143,7 @@ const IndustriesSlider = () => {
         </motion.div>
 
         {/* Slider Container */}
-        <div 
+        <div
           className="relative max-w-6xl mx-auto"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -153,15 +153,18 @@ const IndustriesSlider = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
-                initial={{ opacity: 0, x: 300 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -300 }}
-                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: "easeOut"
+                }}
                 className="absolute inset-0"
               >
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
-                  <img 
+                  <img
                     src={industries[currentSlide].image}
                     alt={industries[currentSlide].title}
                     className="w-full h-full object-cover"
@@ -174,9 +177,14 @@ const IndustriesSlider = () => {
                 <div className="relative h-full flex items-center justify-between p-8 md:p-12">
                   <div className="flex-1 max-w-2xl ml-16 md:ml-20">
                     <motion.div
-                      initial={{ scale: 0, rotate: -180 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+                      key={`icon-${currentSlide}`}
+                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ 
+                        delay: 0,
+                        duration: 0.6,
+                        ease: "easeOut"
+                      }}
                       className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-accent/30"
                     >
                       {(() => {
@@ -184,29 +192,44 @@ const IndustriesSlider = () => {
                         return <IconComponent size={32} className="text-accent" />;
                       })()}
                     </motion.div>
-                    
+
                     <motion.h3
+                      key={`title-${currentSlide}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.6 }}
+                      transition={{ 
+                        delay: 0.2,
+                        duration: 0.6,
+                        ease: "easeOut"
+                      }}
                       className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
                     >
                       {industries[currentSlide].title}
                     </motion.h3>
-                    
+
                     <motion.p
+                      key={`desc-${currentSlide}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
+                      transition={{ 
+                        delay: 0.4,
+                        duration: 0.6,
+                        ease: "easeOut"
+                      }}
                       className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-xl"
                     >
                       {industries[currentSlide].description}
                     </motion.p>
 
                     <motion.button
+                      key={`button-${currentSlide}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.6 }}
+                      transition={{ 
+                        delay: 0.6,
+                        duration: 0.6,
+                        ease: "easeOut"
+                      }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="mt-8 bg-accent hover:bg-accent/90 text-primary-foreground px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-accent/25"
@@ -225,7 +248,7 @@ const IndustriesSlider = () => {
             className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-            <ChevronLeft size={24} />
+              <ChevronLeft size={24} />
             </motion.div>
           </motion.button>
 
@@ -234,7 +257,7 @@ const IndustriesSlider = () => {
             className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-            <ChevronRight size={24} />
+              <ChevronRight size={24} />
             </motion.div>
           </motion.button>
 
@@ -247,8 +270,8 @@ const IndustriesSlider = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index 
-                    ? 'bg-accent shadow-lg shadow-accent/50' 
+                  currentSlide === index
+                    ? 'bg-accent shadow-lg shadow-accent/50'
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
               />
@@ -280,18 +303,25 @@ const IndustriesSlider = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               onClick={() => goToSlide(index)}
               className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border ${
-                currentSlide === index 
-                  ? 'bg-accent/10 border-accent shadow-lg shadow-accent/25' 
+                currentSlide === index
+                  ? 'bg-accent/10 border-accent shadow-lg shadow-accent/25'
                   : 'bg-card hover:bg-card/80 border-border/50 hover:border-accent/50'
               }`}
             >
               {(() => {
                 const IconComponent = industry.icon;
-                return <IconComponent size={24} className={currentSlide === index ? 'text-accent' : 'text-muted-foreground'} />;
+                return (
+                  <IconComponent
+                    size={24}
+                    className={currentSlide === index ? 'text-accent' : 'text-muted-foreground'}
+                  />
+                );
               })()}
-              <p className={`text-sm mt-2 font-medium ${
-                currentSlide === index ? 'text-accent' : 'text-muted-foreground'
-              }`}>
+              <p
+                className={`text-sm mt-2 font-medium ${
+                  currentSlide === index ? 'text-accent' : 'text-muted-foreground'
+                }`}
+              >
                 {industry.title}
               </p>
             </motion.div>

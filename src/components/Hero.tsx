@@ -67,14 +67,14 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-yellow-300 mb-6 leading-tight"
           >
-            Protecting Your
+            PROTECTING YOUR
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
               className="block text-accent mt-2"
             >
-              Future Together
+              FUTURE TOGETHER
             </motion.span>
           </motion.h1>
 
