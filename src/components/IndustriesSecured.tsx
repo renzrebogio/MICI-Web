@@ -126,7 +126,7 @@ const IndustriesSlider = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-tertiary mb-6"
           >
             INDUSTRIES THAT{' '}
             <span className="text-accent">MICI SECURES</span>
@@ -185,11 +185,11 @@ const IndustriesSlider = () => {
                         duration: 0.6,
                         ease: "easeOut"
                       }}
-                      className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-accent/30"
+                      className="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-accent/30"
                     >
                       {(() => {
                         const IconComponent = industries[currentSlide].icon;
-                        return <IconComponent size={32} className="text-accent" />;
+                        return <IconComponent size={32} className="text-white" />;
                       })()}
                     </motion.div>
 
@@ -245,7 +245,7 @@ const IndustriesSlider = () => {
           {/* Navigation Arrows */}
           <motion.button
             onClick={prevSlide}
-            className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-secondary/80 hover:bg-tertiary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <ChevronLeft size={24} />
@@ -254,7 +254,7 @@ const IndustriesSlider = () => {
 
           <motion.button
             onClick={nextSlide}
-            className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-secondary/80 hover:bg-tertiary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <ChevronRight size={24} />
@@ -291,42 +291,7 @@ const IndustriesSlider = () => {
         </div>
 
         {/* Industry Grid Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-4"
-        >
-          {industries.slice(0, 11).map((industry, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              onClick={() => goToSlide(index)}
-              className={`p-4 rounded-xl cursor-pointer transition-all duration-300 border ${
-                currentSlide === index
-                  ? 'bg-accent/10 border-accent shadow-lg shadow-accent/25'
-                  : 'bg-card hover:bg-card/80 border-border/50 hover:border-accent/50'
-              }`}
-            >
-              {(() => {
-                const IconComponent = industry.icon;
-                return (
-                  <IconComponent
-                    size={24}
-                    className={currentSlide === index ? 'text-accent' : 'text-muted-foreground'}
-                  />
-                );
-              })()}
-              <p
-                className={`text-sm mt-2 font-medium ${
-                  currentSlide === index ? 'text-accent' : 'text-muted-foreground'
-                }`}
-              >
-                {industry.title}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+        
       </div>
     </section>
   );

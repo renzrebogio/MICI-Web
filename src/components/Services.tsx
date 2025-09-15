@@ -12,6 +12,7 @@ import {
   Plane,
   ChevronRight,
   Check,
+  PawPrint,
 } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
@@ -129,7 +130,7 @@ const Services = () => {
       bgColor: "bg-yellow-50",
     },
     {
-      icon: Plane,
+      icon: PawPrint,
       title: "Pet Insurance",
       description: "Healthcare coverage for your beloved pets",
       features: [
