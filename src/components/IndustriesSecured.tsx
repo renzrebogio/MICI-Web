@@ -224,12 +224,12 @@ const IndustriesSlider = () => {
                         duration: 0.6,
                         ease: "easeOut",
                       }}
-                      className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-accent/30"
+                      className="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-accent/30"
                     >
                       {(() => {
                         const IconComponent = industries[currentSlide].icon;
                         return (
-                          <IconComponent size={32} className="text-tertiary" />
+                          <IconComponent size={32} className="text-accent" />
                         );
                       })()}
                     </motion.div>
@@ -286,7 +286,7 @@ const IndustriesSlider = () => {
           {/* Navigation Arrows */}
           <motion.button
             onClick={prevSlide}
-            className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-secondary/80 hover:bg-accent text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute left-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <ChevronLeft size={24} />
@@ -295,7 +295,7 @@ const IndustriesSlider = () => {
 
           <motion.button
             onClick={nextSlide}
-            className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-secondary/80 hover:bg-accent text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
+            className="absolute right-4 top-60 -translate-y-1/2 w-12 h-12 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm border border-primary-foreground/20 transition-all duration-300 hover:shadow-accent/25"
           >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
               <ChevronRight size={24} />
