@@ -338,7 +338,7 @@ const Services = () => {
                       className="w-full bg-accent hover:bg-tertiary/90 text-primary-foreground font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                       size="lg"
                     >
-                      Get Quote for {services[selectedService].title}
+                      Sign Up for {services[selectedService].title}
                     </Button>
                   </motion.div>
                 </Card>

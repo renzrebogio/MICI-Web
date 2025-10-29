@@ -119,3 +119,8 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}

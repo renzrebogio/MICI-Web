@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +16,41 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "services", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+
+      // Check if we're on corporate governance page
+      if (window.location.pathname === "/corporate-governance") {
+        setActiveSection("corporate-governance");
+      }
+    };
+
+    handleScroll(); // Call once on mount
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Corporate Governance", href: "/corporate-governance" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -27,37 +58,48 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <img
-            src="MICI_Logo.png"
-            alt="Insurance Logo"
-            className="h-12 w-auto"
-          />
+          <a href="/" className="cursor-pointer">
+            <img
+              src="MICI_Logo.png"
+              alt="Insurance Logo"
+              className="h-12 w-auto hover:opacity-80 transition-opacity duration-300"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className={`${
-                  scrolled
-                    ? "text-gray-800 hover:text-accent"
-                    : "text-primary-foreground hover:text-accent"
-                } transition-colors duration-300 relative group`}
-              >
-                {item.name}
-                <motion.div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
-              </motion.a>
-            ))}
+            {navItems.map((item, index) => {
+              const sectionName = item.href.replace("/#", "").replace("/", "");
+              const isActive = activeSection === sectionName;
+              
+              return (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`${
+                    scrolled
+                      ? "text-gray-800 hover:text-accent"
+                      : "text-primary-foreground hover:text-accent"
+                  } ${isActive ? "text-accent font-semibold" : ""} transition-colors duration-300 relative group`}
+                >
+                  {item.name}
+                  <motion.div 
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </motion.a>
+              );
+            })}
           </nav>
 
           {/* CTA Button */}
@@ -73,7 +115,7 @@ const Header = () => {
                 scrolled ? "text-accent" : "text-accent"
               }`}
             >
-              Get Quote
+              Sign Up
             </Button>
           </motion.div>
 
@@ -95,22 +137,29 @@ const Header = () => {
           className="md:hidden overflow-hidden bg-primary/95 backdrop-blur-md"
         >
           <div className="py-4 space-y-4">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const sectionName = item.href.replace("/#", "").replace("/", "");
+              const isActive = activeSection === sectionName;
+              
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2 ${
+                    isActive ? "text-accent font-semibold border-l-4 border-accent" : ""
+                  }`}
+                >
+                  {item.name}
+                </a>
+              );
+            })}
             <div className="px-4 pt-2">
               <Button
                 variant="outline"
                 className="w-full border-accent text-accent hover:bg-accent hover:text-primary-foreground"
               >
-                Get Quote
+                Sign Up
               </Button>
             </div>
           </div>
