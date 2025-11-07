@@ -28,19 +28,22 @@ const Contact = () => {
     {
       location: "Cebu",
       phone: "(032) 233 7911",
-      address: "Cebu Office Location",
+      address:
+        "Unit 301 Kepwealth Center, Cardinal Rosales St. Corner Samar Loop, Cebu Business Park, Cebu City",
       isMain: false,
     },
     {
       location: "Bacolod",
       phone: "(034) 434 835",
-      address: "Bacolod Office Location",
+      address:
+        "Door #115 Northpoint Atrium, B.S. Aquino Drive, Bacolod City",
       isMain: false,
     },
     {
       location: "Davao",
       phone: "(082) 227 5731",
-      address: "Davao Office Location",
+      address:
+        "Room 006 Mezzanine Floor, Jaltan Building, Corner C.M. Recto & Bonifacio Street, Davao City, 8000, Davao del Sur, Philippines",
       isMain: false,
     },
   ];
@@ -276,11 +279,9 @@ const Contact = () => {
                             <Phone className="h-4 w-4 mr-1" />
                             {office.phone}
                           </div>
-                          {office.isMain && (
-                            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-                              {office.address}
-                            </p>
-                          )}
+                          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                            {office.address}
+                          </p>
                         </div>
                       </div>
                     </Card>
@@ -298,7 +299,10 @@ const Contact = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-16"
         >
-          <Card className="h-64 bg-gradient-to-br from-accent to-tertiary border-0 shadow-card flex items-center justify-center">
+          <Card
+            id="contact-map"
+            className="h-64 bg-gradient-to-br from-accent to-tertiary border-0 shadow-card flex items-center justify-center"
+          >
             <div className="text-center text-primary-foreground">
               <MapPin className="h-12 w-12 mx-auto mb-4 text-accent" />
               <p className="text-lg font-semibold">

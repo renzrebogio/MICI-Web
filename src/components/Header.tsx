@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "services", "contact"];
+      const sections = ["home", "about", "services", "contact"]; // Changed "products" to "services"
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -48,7 +47,7 @@ const Header = () => {
   const navItems = [
     { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
-    { name: "Services", href: "/#services" },
+    { name: "Products", href: "/#services" }, // Changed from /#products to /#services
     { name: "Corporate Governance", href: "/corporate-governance" },
     { name: "Contact", href: "/#contact" },
   ];
@@ -68,12 +67,12 @@ const Header = () => {
             <img
               src="MICI_Logo.png"
               alt="Insurance Logo"
-              className="h-12 w-auto hover:opacity-80 transition-opacity duration-300"
+              className="h-14 w-auto hover:opacity-80 transition-opacity duration-300"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 flex-1 justify-center">
             {navItems.map((item, index) => {
               const sectionName = item.href.replace("/#", "").replace("/", "");
               const isActive = activeSection === sectionName;
@@ -102,23 +101,6 @@ const Header = () => {
             })}
           </nav>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            className="hidden md:block"
-          >
-            <Button
-              variant="outline"
-              className={`border-accent hover:bg-accent hover:text-primary-foreground transition-all duration-300 animate-glow ${
-                scrolled ? "text-accent" : "text-accent"
-              }`}
-            >
-              Sign Up
-            </Button>
-          </motion.div>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -140,7 +122,7 @@ const Header = () => {
             {navItems.map((item) => {
               const sectionName = item.href.replace("/#", "").replace("/", "");
               const isActive = activeSection === sectionName;
-              
+
               return (
                 <a
                   key={item.name}
@@ -154,14 +136,6 @@ const Header = () => {
                 </a>
               );
             })}
-            <div className="px-4 pt-2">
-              <Button
-                variant="outline"
-                className="w-full border-accent text-accent hover:bg-accent hover:text-primary-foreground"
-              >
-                Sign Up
-              </Button>
-            </div>
           </div>
         </motion.div>
       </div>

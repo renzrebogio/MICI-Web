@@ -97,7 +97,7 @@ const About = () => {
         >
           <motion.div variants={itemVariants} className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-accent mb-4">
-              87 Years of Trust & Excellence
+              92 Years of Trust & Excellence
             </h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
@@ -118,20 +118,6 @@ const About = () => {
                 bring confidence to business initiatives.
               </p>
             </div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors cursor-pointer"
-            >
-              Learn More About Our History
-              <motion.div
-                initial={{ x: 0 }}
-                whileHover={{ x: 5 }}
-                className="ml-2"
-              >
-                →
-              </motion.div>
-            </motion.div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="relative">
@@ -158,7 +144,7 @@ const About = () => {
                     transition={{ delay: 1, type: "spring", stiffness: 200 }}
                     className="text-4xl font-bold text-white mb-2"
                   >
-                    87+
+                    92
                   </motion.div>
                   <div className="text-sm opacity-90">Years Strong</div>
                 </div>

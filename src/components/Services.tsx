@@ -46,7 +46,6 @@ const Services = () => {
       features: [
         "Fire protection",
         "Natural disasters",
-        "Theft coverage",
         "Personal belongings",
         "Structural damage",
         "Temporary accommodation",
@@ -76,7 +75,6 @@ const Services = () => {
       features: [
         "Screen damage",
         "Water damage",
-        "Theft protection",
         "Technical support",
         "Replacement device",
         "Global coverage",
@@ -89,9 +87,7 @@ const Services = () => {
       title: "Comprehensive General Liability",
       description: "Business protection against third-party claims",
       features: [
-        "Professional liability",
         "Public liability",
-        "Product liability",
         "Legal defense",
         "Property damage",
         "Medical payments",
@@ -119,12 +115,10 @@ const Services = () => {
       title: "Surety",
       description: "Bond services for performance guarantees",
       features: [
-        "Performance bonds",
-        "Payment bonds",
-        "Bid bonds",
-        "License bonds",
-        "Court bonds",
-        "Contract bonds",
+        "Performance Bonds",
+        "Downpayment Bonds",
+        "Heir's Bonds",
+        "Warranty Bonds",
       ],
       color: "from-yellow-500 to-yellow-600",
       bgColor: "bg-yellow-50",
@@ -337,6 +331,15 @@ const Services = () => {
                     <Button
                       className="w-full bg-accent hover:bg-tertiary/90 text-primary-foreground font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                       size="lg"
+                      onClick={() => {
+                        const contactSection = document.getElementById("contact");
+                        if (contactSection) {
+                          contactSection.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }
+                      }}
                     >
                       Sign Up for {services[selectedService].title}
                     </Button>
@@ -346,22 +349,6 @@ const Services = () => {
             </AnimatePresence>
           </motion.div>
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-accent hover:bg-tertiary/90 text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Compare All Insurance Plans
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CorporateGovernance from "./pages/CorporateGovernance";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyNotice from "./pages/PrivacyNotice";
+import PrivacyNotification from "./pages/PrivacyNotification";
+import DataPrivacyPolicy from "./pages/DataPrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +22,15 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/corporate-governance" element={<CorporateGovernance />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Privacy Policy pages */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy/notice" element={<PrivacyNotice />} />
+          <Route path="/privacy-policy/notification" element={<PrivacyNotification />} />
+
+          {/* Data Privacy Policy page */}
+          <Route path="/data-privacy-policy" element={<DataPrivacyPolicy />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

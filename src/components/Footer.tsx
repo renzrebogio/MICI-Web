@@ -25,15 +25,6 @@ const Footer = () => {
     { name: "Terms of Service", href: "#" },
   ];
 
-  const services = [
-    "Motor Car Insurance",
-    "Property Insurance",
-    "Personal Accident",
-    "Marine/Cargo Insurance",
-    "Comprehensive Liability",
-    "Surety Bonds",
-  ];
-
   return (
     <footer className="bg-secondary text-primary-foreground">
       <div className="container mx-auto px-4">
@@ -54,7 +45,7 @@ const Footer = () => {
                 className="h-12 w-auto mb-4"
               />
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-                Protecting Filipino families and businesses for over 87 years
+                Protecting Filipino families and businesses for over 92 years
                 with comprehensive insurance solutions you can trust.
               </p>
               <div className="flex space-x-4">
@@ -109,38 +100,15 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Services */}
+            {/* Our Products (list removed) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-lg mb-6 text-accent">
-                Our Services
-              </h3>
-              <ul className="space-y-3">
-                {services.map((service, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-primary-foreground/80 hover:text-tertiary transition-colors duration-300 cursor-pointer flex items-center group">
-                      <div className="w-1 h-1 bg-accent rounded-full mr-3 opacity-60"></div>
-                      <motion.span
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 3 }}
-                        className="transition-transform duration-300 text-sm"
-                      >
-                        {service}
-                      </motion.span>
-                    </div>
-                  </motion.li>
-                ))}
-              </ul>
+              <h3 className="font-bold text-lg mb-6 text-accent">Our Products</h3>
+              {/* product list intentionally removed */}
             </motion.div>
 
             {/* Contact Info */}
@@ -204,7 +172,7 @@ const Footer = () => {
             </div>
             <div className="flex space-x-6 text-sm">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
               >
                 Privacy Policy
@@ -216,7 +184,16 @@ const Footer = () => {
                 Terms of Service
               </a>
               <a
-                href="#"
+                href="#contact-map"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("contact-map");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  } else {
+                    window.location.hash = "#contact-map";
+                  }
+                }}
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
               >
                 Sitemap

@@ -85,7 +85,7 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            With 87 years of proven expertise, Metropolitan Insurance Company
+            With 92 years of proven expertise, Metropolitan Insurance Company
             continues to provide comprehensive protection and security to
             individuals and businesses across the Philippines.
           </motion.p>
@@ -101,6 +101,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl shadow-card hover:animate-glow group"
+                onClick={() => window.location.href = "#services"} // Added redirect
               >
                 Get Your Quote
                 <motion.div
@@ -110,16 +111,6 @@ const Hero = () => {
                 >
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </motion.div>
-              </Button>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-primary-foreground text-accent hover:bg-primary-foreground hover:text-accent font-semibold px-8 py-4 rounded-xl"
-              >
-                Learn More
               </Button>
             </motion.div>
           </motion.div>
@@ -132,7 +123,7 @@ const Hero = () => {
             className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { number: "87+", label: "Years of Excellence" },
+              { number: "92", label: "Years of Excellence" },
               { number: "1000+", label: "Trusted Clients" },
               { number: "24/7", label: "Customer Support" },
             ].map((stat, index) => (

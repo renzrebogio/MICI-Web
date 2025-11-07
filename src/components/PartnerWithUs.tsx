@@ -18,7 +18,7 @@ const PartnerWithUs = () => {
       icon: Clock,
       title: "TRUSTED THROUGH TIME",
       description: "MICI has been engaged in insurance since 1933. It has been trusted by individuals and businesses from different industries such as hospitality, education, and telecommunications industry, among others.",
-      statValue: 87,
+      statValue: 92,
       statLabel: "Years of Experience",
       statSuffix: "+",
       delay: 0
@@ -176,7 +176,19 @@ const PartnerWithUs = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <button className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-teal-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById("contact");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              } else {
+                // fallback to hash navigation
+                window.location.hash = "#contact";
+              }
+            }}
+            className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-teal-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
             Start Your Partnership Today
           </button>
         </div>
