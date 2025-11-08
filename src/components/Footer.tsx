@@ -20,8 +20,9 @@ const Footer = () => {
   const quickLinks = [
     { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Industries", href: "#industries" }, // Added new quick link
     { name: "Contact", href: "#contact" },
-    { name: "Privacy Policy", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Service", href: "#" },
   ];
 
@@ -30,7 +31,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12 justify-items-start">
             {/* Company Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -100,22 +101,11 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Our Products (list removed) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-bold text-lg mb-6 text-accent">Our Products</h3>
-              {/* product list intentionally removed */}
-            </motion.div>
-
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
               <h3 className="font-bold text-lg mb-6 text-accent">Contact Us</h3>

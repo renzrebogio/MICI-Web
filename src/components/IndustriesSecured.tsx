@@ -167,7 +167,10 @@ const IndustriesSlider = () => {
   const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary via-accent to-secondary overflow-hidden">
+    <section
+      id="industries"
+      className="py-20 bg-gradient-to-br from-secondary via-accent to-secondary overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div

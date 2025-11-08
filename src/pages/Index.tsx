@@ -6,8 +6,23 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import IndustriesSecured from '@/components/IndustriesSecured';
 import PartnerWithUs from '@/components/PartnerWithUs';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen">
       <Header />
