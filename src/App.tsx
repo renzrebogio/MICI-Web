@@ -10,6 +10,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PrivacyNotice from "./pages/PrivacyNotice";
 import PrivacyNotification from "./pages/PrivacyNotification";
 import DataPrivacyPolicy from "./pages/DataPrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,9 @@ const App = () => (
 
           {/* Data Privacy Policy page */}
           <Route path="/data-privacy-policy" element={<DataPrivacyPolicy />} />
+
+          {/* Terms of Service */}
+          <Route path="/terms-of-service" element={<TermsOfService />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

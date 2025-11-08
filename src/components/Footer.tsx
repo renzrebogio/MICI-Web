@@ -158,7 +158,7 @@ const Footer = () => {
             <div className="text-primary-foreground/60 text-sm text-center md:text-left">
               © 2024 Metropolitan Insurance Company Inc. All rights reserved.
               <br />
-              Certificate of Authority No. 2019/93-R.
+              Certificate of Authority No. 2025/49-R.
             </div>
             <div className="flex space-x-6 text-sm">
               <a
@@ -168,7 +168,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="/terms-of-service"
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
               >
                 Terms of Service

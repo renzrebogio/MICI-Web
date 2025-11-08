@@ -20,7 +20,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "services", "contact"]; // Changed "products" to "services"
+      const sections = ["home", "about", "services", "industries", "contact"]; // include industries
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -59,6 +59,8 @@ const Header = () => {
           const element = document.getElementById(sectionId);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+            // ensure header shows active state immediately
+            setActiveSection(sectionId);
           }
         }, 100);
       } else {
@@ -66,6 +68,8 @@ const Header = () => {
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
+          // ensure header shows active state immediately
+          setActiveSection(sectionId);
         }
       }
     } else {
@@ -87,9 +91,7 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary/95 backdrop-blur-md shadow-lg"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -115,11 +117,9 @@ const Header = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`${
-                    scrolled
-                      ? "text-gray-800 hover:text-accent"
-                      : "text-primary-foreground hover:text-accent"
-                  } ${isActive ? "text-accent font-semibold" : ""} transition-colors duration-300 relative group`}
+                  className={`text-gray-800 hover:text-accent ${
+                    isActive ? "text-accent font-semibold" : ""
+                  } transition-colors duration-300 relative group`}
                 >
                   {item.name}
                   <motion.div 
@@ -135,9 +135,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 transition-colors duration-300 ${
-              scrolled ? "text-accent-800" : "text-primary-foreground"
-            }`}
+            className="md:hidden p-2 transition-colors duration-300 text-gray-800"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
