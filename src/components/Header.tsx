@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +40,9 @@ const Header = () => {
       if (window.location.pathname === "/corporate-governance") {
         setActiveSection("corporate-governance");
       }
+      if (window.location.pathname === "/career") {
+        setActiveSection("career");
+      }
     };
 
     handleScroll(); // Call once on mount
@@ -48,17 +51,17 @@ const Header = () => {
   }, []);
 
   const handleNavigation = (href: string) => {
-    if (href.startsWith('/#')) {
-      const sectionId = href.replace('/#', '');
-      
-      if (location.pathname !== '/') {
+    if (href.startsWith("/#")) {
+      const sectionId = href.replace("/#", "");
+
+      if (location.pathname !== "/") {
         // If we're not on home page, navigate and scroll
-        navigate('/', { replace: true }); // Replace current history entry
+        navigate("/", { replace: true }); // Replace current history entry
         // Wait for navigation to complete then scroll
         setTimeout(() => {
           const element = document.getElementById(sectionId);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
             // ensure header shows active state immediately
             setActiveSection(sectionId);
           }
@@ -67,7 +70,7 @@ const Header = () => {
         // If already on home page, just scroll
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
           // ensure header shows active state immediately
           setActiveSection(sectionId);
         }
@@ -85,6 +88,7 @@ const Header = () => {
     { name: "Industries", href: "/#industries" }, // Added new nav item
     { name: "Corporate Governance", href: "/corporate-governance" },
     { name: "Contact", href: "/#contact" },
+    { name: "Career", href: "/career" },
   ];
 
   return (
@@ -109,7 +113,7 @@ const Header = () => {
             {navItems.map((item, index) => {
               const sectionName = item.href.replace("/#", "").replace("/", "");
               const isActive = activeSection === sectionName;
-              
+
               return (
                 <motion.a
                   key={item.name}
@@ -122,7 +126,7 @@ const Header = () => {
                   } transition-colors duration-300 relative group`}
                 >
                   {item.name}
-                  <motion.div 
+                  <motion.div
                     className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
@@ -162,7 +166,9 @@ const Header = () => {
                     setIsOpen(false);
                   }}
                   className={`block text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2 ${
-                    isActive ? "text-accent font-semibold border-l-4 border-accent" : ""
+                    isActive
+                      ? "text-accent font-semibold border-l-4 border-accent"
+                      : ""
                   }`}
                 >
                   {item.name}

@@ -22,6 +22,7 @@ const Footer = () => {
     { name: "Services", href: "#services" },
     { name: "Industries", href: "#industries" }, // Added new quick link
     { name: "Contact", href: "#contact" },
+    { name: "Career", href: "#career" },
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Service", href: "#" },
   ];

@@ -11,6 +11,7 @@ import PrivacyNotice from "./pages/PrivacyNotice";
 import PrivacyNotification from "./pages/PrivacyNotification";
 import DataPrivacyPolicy from "./pages/DataPrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import Career from "./pages/Career";
 
 const queryClient = new QueryClient();
 
@@ -22,12 +23,19 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/corporate-governance" element={<CorporateGovernance />} />
+          <Route
+            path="/corporate-governance"
+            element={<CorporateGovernance />}
+          />
+          <Route path="/Career" element={<Career />} />
 
           {/* Privacy Policy pages */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/privacy-policy/notice" element={<PrivacyNotice />} />
-          <Route path="/privacy-policy/notification" element={<PrivacyNotification />} />
+          <Route
+            path="/privacy-policy/notification"
+            element={<PrivacyNotification />}
+          />
 
           {/* Data Privacy Policy page */}
           <Route path="/data-privacy-policy" element={<DataPrivacyPolicy />} />
