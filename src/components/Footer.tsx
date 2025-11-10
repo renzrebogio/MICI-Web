@@ -8,8 +8,37 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (href: string) => {
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        // If not on home page, navigate home first then scroll
+        navigate("/");
+        setTimeout(() => {
+          const element = document.getElementById(href.replace("#", ""));
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        // If on home page, just scroll
+        const element = document.getElementById(href.replace("#", ""));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    } else {
+      // Add scroll to top for non-hash routes
+      window.scrollTo(0, 0);
+      navigate(href);
+    }
+  };
+
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
@@ -19,12 +48,11 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Industries", href: "#industries" }, // Added new quick link
+    { name: "Products", href: "#services" },
+    { name: "Industries", href: "#industries" },
+    { name: "Corporate Governance", href: "/corporate-governance" },
     { name: "Contact", href: "#contact" },
-    { name: "Career", href: "#career" },
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Service", href: "#" },
+    { name: "Career", href: "/career" },
   ];
 
   return (
@@ -73,7 +101,7 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-lg mb-6 text-accent">
+              <h3 className="font-extrabold text-lg mb-6 text-accent/95 drop-shadow-sm">
                 Quick Links
               </h3>
               <ul className="space-y-3">
@@ -87,6 +115,10 @@ const Footer = () => {
                   >
                     <a
                       href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavigation(link.href);
+                      }}
                       className="text-primary-foreground/80 hover:text-tertiary transition-colors duration-300 flex items-center group"
                     >
                       <motion.span
@@ -109,7 +141,9 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-lg mb-6 text-accent">Contact Us</h3>
+              <h3 className="font-extrabold text-lg mb-6 text-accent/95 drop-shadow-sm">
+                Contact Us
+              </h3>
               <div className="space-y-4">
                 <motion.div
                   whileHover={{ x: 5 }}
@@ -162,18 +196,20 @@ const Footer = () => {
               Certificate of Authority No. 2025/49-R.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a
-                href="/privacy-policy"
+              <Link
+                to="/privacy-policy"
+                onClick={() => window.scrollTo(0, 0)}
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
               >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms-of-service"
+                Privacy Notice
+              </Link>
+              <Link
+                to="/terms-of-service"
+                onClick={() => window.scrollTo(0, 0)}
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"
               >
                 Terms of Service
-              </a>
+              </Link>
               <a
                 href="#contact-map"
                 onClick={(e) => {
@@ -181,8 +217,6 @@ const Footer = () => {
                   const el = document.getElementById("contact-map");
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth", block: "start" });
-                  } else {
-                    window.location.hash = "#contact-map";
                   }
                 }}
                 className="text-primary-foreground/60 hover:text-tertiary transition-colors duration-300"

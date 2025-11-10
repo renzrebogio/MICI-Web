@@ -55,37 +55,36 @@ const Header = () => {
       const sectionId = href.replace("/#", "");
 
       if (location.pathname !== "/") {
-        // If we're not on home page, navigate and scroll
-        navigate("/", { replace: true }); // Replace current history entry
-        // Wait for navigation to complete then scroll
+        navigate("/", { replace: true });
         setTimeout(() => {
           const element = document.getElementById(sectionId);
           if (element) {
             element.scrollIntoView({ behavior: "smooth" });
-            // ensure header shows active state immediately
             setActiveSection(sectionId);
           }
         }, 100);
       } else {
-        // If already on home page, just scroll
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
-          // ensure header shows active state immediately
           setActiveSection(sectionId);
         }
       }
     } else {
-      // For non-home sections (like corporate-governance)
+      // Add scroll to top for non-hash routes
+      window.scrollTo(0, 0);
       navigate(href);
+      setActiveSection(href.replace("/", ""));
     }
+    setIsOpen(false);
   };
 
+  // Update navItems to use proper hash routing
   const navItems = [
     { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
     { name: "Products", href: "/#services" },
-    { name: "Industries", href: "/#industries" }, // Added new nav item
+    { name: "Industries", href: "/#industries" },
     { name: "Corporate Governance", href: "/corporate-governance" },
     { name: "Contact", href: "/#contact" },
     { name: "Career", href: "/career" },
@@ -102,7 +101,7 @@ const Header = () => {
           {/* Logo */}
           <a href="/" className="cursor-pointer">
             <img
-              src="MICI_Logo.png"
+              src="/MICI_Logo.png"
               alt="Insurance Logo"
               className="h-14 w-auto hover:opacity-80 transition-opacity duration-300"
             />
@@ -118,6 +117,10 @@ const Header = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigation(item.href);
+                  }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -163,7 +166,6 @@ const Header = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavigation(item.href);
-                    setIsOpen(false);
                   }}
                   className={`block text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2 ${
                     isActive

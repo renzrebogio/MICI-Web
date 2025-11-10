@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Shield, FileText, Users, Lock, Eye, AlertCircle, Globe, Mail } from "lucide-react";
 import Header from "../components/Header";
+import { useEffect } from "react";
 
 const DataPrivacyPolicy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <>
       <Header />

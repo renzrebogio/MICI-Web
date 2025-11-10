@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Header from "../components/Header";
+import { useEffect } from "react";
 
 const PrivacyNotice = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header />
@@ -15,23 +20,23 @@ const PrivacyNotice = () => {
           backgroundAttachment: "fixed"
         }}
       >
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-blue-50/50 to-gray-100/50" />
+        {/* Overlay for readability (tinted with project accent) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-accent/20 to-white/30" />
         
         {/* Content */}
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Back Button */}
           <Link 
             to="/privacy-policy" 
-            className="mb-6 inline-flex items-center gap-2 text-gray-700 hover:text-accent transition-colors group bg-white/70 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm"
+            className="mb-6 inline-flex items-center gap-2 text-gray-800 no-underline group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm"
           >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-5 h-5 transition-transform" />
             <span className="font-medium">Back to Data Privacy</span>
           </Link>
 
-          <div className="bg-white/70 backdrop-blur-sm rounded-lg shadow-xl p-8 md:p-12">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl p-8 md:p-12">
             {/* Header Section */}
-            <div className="mb-10 pb-8 border-b border-gray-200">
+            <div className="mb-10 pb-8 border-b border-primary/10">
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src="/MICI_Logo.png"
@@ -39,63 +44,62 @@ const PrivacyNotice = () => {
                   className="h-16 w-auto"
                 />
                 <div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    METROPOLITAN INSURANCE COMPANY, INC.
+                  <h1 className="text-3xl md:text-4xl font-bold text-accent/80 mb-2">
+                    METROPOLITAN INSURANCE, INC.
                   </h1>
                   <h2 className="text-xl md:text-2xl font-semibold text-accent mb-2">
                     Internet Privacy Policy and Internet Security Arrangement
                   </h2>
                 </div>
               </div>
-              <p className="text-gray-600 italic text-sm">Effective Date: September 20, 2020</p>
+              <p className="text-gray-800 italic text-sm">Effective Date: September 20, 2020</p>
             </div>
 
-            {/* Update section headers */}
+            {/* Content sections */}
             <div className="prose prose-lg max-w-none space-y-10">
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Introduction
                 </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   We value your privacy. This Privacy Policy informs you of your choices and our practices regarding any information you provide to us.
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   The use of our services may involve the collection and use of your Information (as defined in the "The Information We Collect and How We Collect It" section below) on our services. It is important for you to understand how this happens and how you may control it, so please read this Privacy Policy carefully.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   By using our services, you agree that we may collect, use and share your Information in accordance with this Privacy Policy, as revised from time to time.
                 </p>
               </section>
 
-              {/* Scope of This Privacy Policy */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Scope of This Privacy Policy
                 </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   We may from time-to-time revise or add specific instructions, policies, and terms to this Privacy Policy. These instructions, policies, and terms form part of this Privacy Policy.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   Where we consider that any changes to this Privacy Policy are reasonably material, we will notify you via our website at https://miciph.com/, through direct communication to you, or other means prior to the change becoming effective. By continuing to use our services after any changes to this Privacy Policy, with or without notice from us, you are agreeing to the revised Privacy Policy.
                 </p>
               </section>
 
-              {/* The Information We Collect */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   The Information We Collect and How We Collect It
                 </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   In providing our services, we collect, store and use the following Information relating to you:
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   <strong>"Personal Information"</strong> is any information or combination of information that relates to you and can be used to identify you. Personal Information may include the following:
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   Information you make available to us when you open an account or use our services, such as your:
                 </p>
+
                 <div className="bg-accent/10 backdrop-blur-sm p-6 rounded-lg mb-4">
-                  <ul className="grid md:grid-cols-2 gap-2 text-gray-700">
+                  <ul className="grid md:grid-cols-2 gap-2 text-gray-800">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></div>
                       Name of the Insured
@@ -138,195 +142,194 @@ const PrivacyNotice = () => {
                     </li>
                   </ul>
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-3">
+
+                <p className="text-gray-800 leading-relaxed mb-3">
                   Information which you make available to our services as you use them, including Shared Information you make available to others through our services and information you store using our services.
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   Shared Information that others using our services make available about you, such as information contained in posts they make and communications they make to you and others using our services; and
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-relaxed mb-4">
                   Information we collect as you access our website or use our services, such as:
                 </p>
-                
-                <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 backdrop-blur-sm p-6 rounded-lg mb-4 border-l-4 border-blue-600">
+
+                <div className="bg-accent/10 backdrop-blur-sm p-6 rounded-lg mb-4 border-l-4 border-accent">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Location Data
                   </h4>
-                  <p className="text-gray-700 leading-relaxed mb-3">
+                  <p className="text-gray-800 leading-relaxed mb-3">
                     We may collect information regarding your location (when you use a location-enabled service), including:
                   </p>
-                  <ul className="space-y-2 text-gray-700">
+                  <ul className="space-y-2 text-gray-800">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                      <span>the location of your device when you use our services, such as from the GPS, Wi-Fi, compass, accelerometer or other sensors in your mobile device.</span>
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                      <span>the location of your device when you use our services, such as from the GPS, Wi‑Fi, compass, accelerometer or other sensors in your mobile device.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
                       <span>the IP address of the device or internet service you use to access our services,</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                      <span>other information made available by you or others that gives an indication as to where you are or have been located, such as account information that indicates where you are located and Shared Information you or others post indicating your location, such as any geotag information that is embedded in any photos you make available to us; and</span>
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                      <span>other information made available by you or others that gives an indication as to where you are or have been located.</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-r from-green-50/80 to-teal-50/80 backdrop-blur-sm p-6 rounded-lg border-l-4 border-green-600">
+                <div className="bg-accent/10 backdrop-blur-sm p-6 rounded-lg border-l-4 border-accent">
                   <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Log Data
                   </h4>
-                  <p className="text-gray-700 leading-relaxed mb-3">
+                  <p className="text-gray-800 leading-relaxed mb-3">
                     There are types of information we may automatically collect when you use our services, whether using cookies, web beacons and log files or otherwise, including:
                   </p>
-                  <ul className="space-y-2 text-gray-700">
+                  <ul className="space-y-2 text-gray-800">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-600 rounded-full flex-shrink-0 mt-2"></div>
-                      <span>technical information such as your mobile carrier, configuration information made available by your web browser or other programs you use to access our services, your IP address and your device's version and identification number, information about what you have searched for and looked at while using our services, such as web search terms used, social media profiles visited, and details of other information and content accessed or requested by you in using our services;</span>
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                      <span>technical information such as your mobile carrier, browser configuration information, your IP address and device identifiers.</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-600 rounded-full flex-shrink-0 mt-2"></div>
-                      <span>Information about communications you have made using our services, such as the people you've communicated with and the time, data, and duration of your communications; and metadata, which means information related to items you have made available through our services, such as the date, time or location that a shared photograph was taken or posted.</span>
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                      <span>information about communications you make using our services and related metadata.</span>
                     </li>
                   </ul>
                 </div>
               </section>
 
-              {/* How We Use Your Information */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   How We Use Your Information
                 </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-gray-800 leading-relaxed mb-3">
                   The collected signature, full address, email, contact details and other information as listed above will be used in your transactions with Metropolitan Insurance Company Inc. By agreeing to the Terms and Conditions and this Privacy Policy, you are authorizing Metropolitan Insurance Company Inc. to use your submitted information to facilitate transactions in your behalf as deemed authorized by you and such authorization shall extend to third parties with whom we have data sharing agreements.
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-4 font-semibold">
+                <p className="text-gray-800 leading-relaxed mb-4 font-semibold">
                   We may use your Information for any of the following purposes:
                 </p>
-                
+
                 <div className="space-y-3">
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To enable us to perform our transactions with you.</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To enable us to perform our transactions with you.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To provide our services and verify your identity;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To provide our services and verify your identity;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To approve, facilitate, administer and process applications and transactions; send you statements, billings, notices and other such documents necessary for continued use of our products and services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To approve, facilitate, administer and process applications and transactions; send you statements, billings, notices and other such documents necessary for continued use of our products and services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To conduct studies and researches for the purpose of reviewing, developing and improving our products and services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To conduct studies and researches for the purpose of reviewing, developing and improving our products and services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To perform profile analysis, behavioral modeling and analytics to understand needs, preferences and market trends to be able to improve and recommend suitable products and services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To perform profile analysis, behavioral modeling and analytics to understand needs, preferences and market trends to be able to improve and recommend suitable products and services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">For customer service, security, fraud-detection, archival and backup purposes in connection with the provision of our services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">For customer service, security, fraud-detection, archival and backup purposes in connection with the provision of our services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To communicate with you.</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To communicate with you.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To reach out to you regarding products and services information, including offers, promotions, discounts, rewards; and for personalizing your experience with our various touchpoints such as call center, telemarketing, email, messaging and other channels;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To reach out to you regarding products and services information, including offers, promotions, discounts, rewards; and for personalizing your experience with our various touchpoints such as call center, telemarketing, email, messaging and other channels;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To respond to your queries, requests and complaints and improve how we interact with you;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To respond to your queries, requests and complaints and improve how we interact with you;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To provide you with advertising and direct marketing that is more relevant to you;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To provide you with advertising and direct marketing that is more relevant to you;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To improve our services.</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To improve our services.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To better understand how you access and use our services, for the purposes of trying to improve our services and to respond to customer desires and preferences, including language and location customization, personalized help and instructions, or other responses to your and other customers' usage of our services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To better understand how you access and use our services, for the purposes of trying to improve our services and to respond to customer desires and preferences, including language and location customization, personalized help and instructions, or other responses to your and other customers' usage of our services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To help us develop our new services and improve our existing services;</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To help us develop our new services and improve our existing services;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To assess the effectiveness of and improve advertising and other marketing and promotional activities on or in connection with our services when your account is subscribed to an official account; and</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To assess the effectiveness of and improve advertising and other marketing and promotional activities on or in connection with our services when your account is subscribed to an official account; and</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-gray-50/80 backdrop-blur-sm rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To allow you to participate in surveys about our products and services. If you participate in a survey, we may request certain personally identifiable information from you. Participation in these surveys is voluntary and you therefore have a choice whether or not to disclose this information. We use may use a third-party service provider to conduct these surveys and such third-party service provider will be prohibited from using your personally identifiable information for any other purpose.</span>
+                  <div className="flex items-start gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To allow you to participate in surveys about our products and services. If you participate in a survey, we may request certain personally identifiable information from you. Participation in these surveys is voluntary and you therefore have a choice whether or not to disclose this information. We use may use a third-party service provider to conduct these surveys and such third-party service provider will be prohibited from using your personally identifiable information for any other purpose.</span>
                   </div>
                 </div>
               </section>
 
-              {/* To protect our Company's interest */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   To Protect Our Company's Interest
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To perform certain protective safeguards against improper use or abuse of our products and services including fraud prevention;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To perform certain protective safeguards against improper use or abuse of our products and services including fraud prevention;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To comply and/or perform our operational, audit, administrative, credit and risk management processes, policies and procedures, including credit check, verification and reporting;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To comply and/or perform our operational, audit, administrative, credit and risk management processes, policies and procedures;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To review and/or comply with the terms and conditions governing our products, services, facilities and channels;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To review and/or comply with the terms and conditions governing our products, services, facilities and channels;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">Carry out payment collection activities through the Company's Collection Department.</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">Carry out payment collection activities through the Company's Collection Department.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">Enable the Company to pursue reasonable and legally permissible remedies in accordance with this Agreement and under applicable laws;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">Enable the Company to pursue reasonable and legally permissible remedies in accordance with this Agreement and under applicable laws;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To comply with applicable laws and legal processes.</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To comply with applicable laws and legal processes.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">To comply with legal and regulatory requirements of government regulators, judicial, supervisory bodies, tax authorities or courts of competent jurisdiction, as the same may be amended or supplemented from time to time;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">To comply with legal and regulatory requirements of government regulators, judicial, supervisory bodies, tax authorities or courts of competent jurisdiction, as the same may be amended or supplemented from time to time;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">Comply with court order and other legal processes;</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">Comply with court order and other legal processes;</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">Respond to governmental inquiries or requests from public authorities.</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">Respond to governmental inquiries or requests from public authorities.</span>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-amber-50/80 backdrop-blur-sm rounded-lg border-l-2 border-amber-600">
-                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0 mt-2"></div>
-                    <span className="text-gray-700">Prevent fraud, violation of contracts, violations of law, and misuse of our products and services.</span>
+                  <div className="flex items-start gap-3 p-3 bg-accent/10 backdrop-blur-sm rounded-lg border-l-2 border-accent">
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-2"></div>
+                    <span className="text-gray-800">Prevent fraud, violation of contracts, violations of law, and misuse of our products and services.</span>
                   </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed mt-6">
+                <p className="text-gray-800 leading-relaxed mt-6">
                   Please note that for the purposes of seeking to provide our clients with a better experience, to improve our services or otherwise where you have consented, Personal Information collected through our site or service may, subject to user privacy controls (where available), be used by our other services (including in an aggregated or individualized manner).
                 </p>
-                <p className="text-gray-700 leading-relaxed mt-3">
+                <p className="text-gray-800 leading-relaxed mt-3">
                   For example, Personal Information collected during your use of one of our services may be used to suggest content that can be made available to you on another service or be used to try to present more relevant advertising to you in another service. You may also from time to time ask us to migrate or export your Personal Information contained in one of our services to another of our services, where such migration option is available.
                 </p>
               </section>
 
               {/* Cookies, Web Beacons, and Log Files */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Cookies, Web Beacons, and Log Files
                 </h3>
                 <div className="bg-purple-50/80 backdrop-blur-sm p-6 rounded-lg border-l-4 border-purple-600">
@@ -338,7 +341,7 @@ const PrivacyNotice = () => {
 
               {/* Sharing of Your Personal Information */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Sharing of Your Personal Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
@@ -405,7 +408,7 @@ const PrivacyNotice = () => {
 
               {/* A Word About Shared Information */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   A Word About Shared Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
@@ -418,7 +421,7 @@ const PrivacyNotice = () => {
 
               {/* Communications From Us */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Communications From Us
                 </h3>
                 
@@ -439,7 +442,7 @@ const PrivacyNotice = () => {
 
               {/* A Word About Sensitive Personal Information */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   A Word About Sensitive Personal Information
                 </h3>
                 <div className="bg-yellow-50/80 backdrop-blur-sm p-6 rounded-lg border-l-4 border-yellow-600">
@@ -460,7 +463,7 @@ const PrivacyNotice = () => {
 
               {/* Third Party Services */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Third Party Services on Our Services
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
@@ -473,7 +476,7 @@ const PrivacyNotice = () => {
 
               {/* Your Rights */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Your Rights
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-6">
@@ -527,7 +530,7 @@ const PrivacyNotice = () => {
 
               {/* Age Restrictions */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Age Restrictions
                 </h3>
                 <div className="bg-red-50/80 backdrop-blur-sm p-6 rounded-lg border-l-4 border-red-600">
@@ -539,7 +542,7 @@ const PrivacyNotice = () => {
 
               {/* Transfer, Storage and Security */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Transfer, Storage and Security of Your Personal Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
@@ -560,7 +563,7 @@ const PrivacyNotice = () => {
 
               {/* Period of Use */}
               <section>
-                <h3 className="text-2xl font-bold text-primary mb-4 pb-2 border-b-2 border-accent">
+                <h3 className="text-2xl font-bold text-accent/70 mb-4 pb-2 border-b-2 border-accent">
                   Period of Use of Your Personal Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">

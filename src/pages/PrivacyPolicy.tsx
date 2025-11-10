@@ -1,10 +1,16 @@
-import Header from "../components/Header";
+import { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { ArrowLeft, Shield, FileText, Lock, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
+
+  // Add useEffect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -38,7 +44,7 @@ const PrivacyPolicy = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
                 <Shield className="w-8 h-8 text-accent" />
               </div>
-              <h1 className="text-4xl font-bold text-primary mb-3">Data Privacy Policy</h1>
+              <h1 className="text-4xl font-bold text-accent/80 mb-3">Data Privacy Policy</h1>
               <p className="text-lg text-gray-800 max-w-3xl mx-auto">
                 Metropolitan Insurance Company, Inc. is committed to protecting your personal information and respecting your privacy rights in accordance with the Data Privacy Act of 2012.
               </p>
@@ -48,14 +54,18 @@ const PrivacyPolicy = () => {
           {/* Privacy Documents Grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {/* Data Privacy Notice Card */}
-            <Link to="/privacy-policy/notice" className="block group">
+            <Link
+              to="/privacy-policy/notice"
+              onClick={() => window.scrollTo(0, 0)}
+              className="block group"
+            >
               <div className="bg-white/95 p-8 h-full rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-accent">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <FileText className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
+                    <h2 className="text-2xl font-semibold text-accent/70 mb-2 group-hover:text-accent transition-colors">
                       Data Privacy Notice
                     </h2>
                     <p className="text-sm text-gray-700 mb-3">General Information</p>
@@ -93,14 +103,18 @@ const PrivacyPolicy = () => {
             </Link>
 
             {/* Data Privacy Notification to Clients Card */}
-            <Link to="/privacy-policy/notification" className="block group">
+            <Link
+              to="/privacy-policy/notification"
+              onClick={() => window.scrollTo(0, 0)}
+              className="block group"
+            >
               <div className="bg-white/95 p-8 h-full rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-accent">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <Users className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-semibold text-primary mb-2 group-hover:text-accent transition-colors">
+                    <h2 className="text-2xl font-semibold text-accent/70 mb-2 group-hover:text-accent transition-colors">
                       Client Privacy Notification
                     </h2>
                     <p className="text-sm text-gray-700 mb-3">For Policyholders & Clients</p>
