@@ -10,30 +10,27 @@ const CorporateGovernance = () => {
   const governanceItems = [
     {
       id: 1,
-      title: "Annual Corporate Governance Report",
-      year: "2022",
-      content: "Access our comprehensive annual corporate governance report detailing our policies, procedures, and compliance measures.",
+      title: "2022",
+      content: "Access our comprehensive corporate governance documents and compliance materials for 2022, including annual reports, policies, and regulatory filings.",
       fileType: "PDF",
-      fileSize: "2.8 MB",
-      fileName: "annual-corporate-governance-report-2022.pdf"
+      fileSize: "358 KB",
+      fileName: "governance-documents-2022.pdf"
     },
     {
       id: 2,
-      title: "Articles of Incorporation",
-      year: "2023",
-      content: "View our official Articles of Incorporation that establish the foundation and legal framework of our organization.",
+      title: "2023",
+      content: "View our complete corporate governance documentation for 2023, featuring updated policies, compliance reports, and organizational frameworks.",
       fileType: "PDF",
-      fileSize: "1.2 MB",
-      fileName: "articles-of-incorporation-2023.pdf"
+      fileSize: "360 KB",
+      fileName: "governance-documents-2023.pdf"
     },
     {
       id: 3,
-      title: "General Information Sheet",
-      year: "2024",
-      content: "Download our General Information Sheet containing key corporate details, officers, and organizational structure.",
+      title: "2024",
+      content: "Download our latest corporate governance materials for 2024, containing current organizational details, compliance measures, and policy updates.",
       fileType: "PDF",
-      fileSize: "850 KB",
-      fileName: "general-information-sheet-2024.pdf"
+      fileSize: "301 KB",
+      fileName: "governance-documents-2024.pdf"
     },
   ];
 
@@ -140,7 +137,7 @@ const CorporateGovernance = () => {
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.6 }}>
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-6">
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">Governance Documents</h3>
-                  <p className="text-slate-700 mb-6">Access our official corporate governance materials and reports</p>
+                  <p className="text-slate-700 mb-6">Access our official corporate governance materials and reports by year</p>
 
                   <div className="space-y-4">
                     {governanceItems.map((item, index) => (
@@ -160,10 +157,7 @@ const CorporateGovernance = () => {
                               <FileText className="text-teal-600" size={24} />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-lg font-semibold text-slate-800 mb-1">{item.title}</h4>
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">{item.year}</span>
-                              </div>
+                              <h4 className="text-2xl font-bold text-slate-800">{item.title}</h4>
                             </div>
                           </div>
                           <motion.div 
