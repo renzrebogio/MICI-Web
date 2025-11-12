@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, FileText, Download, Calendar } from "lucide-react";
+import { ChevronDown, FileText, Download } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -11,34 +11,55 @@ const CorporateGovernance = () => {
     {
       id: 1,
       title: "Annual Corporate Governance Report",
-      year: "2025",
+      year: "2022",
       content: "Access our comprehensive annual corporate governance report detailing our policies, procedures, and compliance measures.",
       fileType: "PDF",
       fileSize: "2.8 MB",
-      lastUpdated: "October 15, 2025",
+      fileName: "annual-corporate-governance-report-2022.pdf"
     },
     {
       id: 2,
       title: "Articles of Incorporation",
-      year: "Updated 2025",
+      year: "2023",
       content: "View our official Articles of Incorporation that establish the foundation and legal framework of our organization.",
       fileType: "PDF",
       fileSize: "1.2 MB",
-      lastUpdated: "January 10, 2025",
+      fileName: "articles-of-incorporation-2023.pdf"
     },
     {
       id: 3,
       title: "General Information Sheet",
-      year: "2025",
+      year: "2024",
       content: "Download our General Information Sheet containing key corporate details, officers, and organizational structure.",
       fileType: "PDF",
       fileSize: "850 KB",
-      lastUpdated: "September 30, 2025",
+      fileName: "general-information-sheet-2024.pdf"
     },
   ];
 
   const toggleItem = (id) => {
     setOpenItem(openItem === id ? null : id);
+  };
+
+  const handleDownload = async (fileName, documentTitle) => {
+    try {
+      const response = await fetch(`/documents/${fileName}`);
+      if (!response.ok) {
+        throw new Error('Download failed');
+      }
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Failed to download document. Please try again.');
+    }
   };
 
   useEffect(() => {
@@ -123,53 +144,78 @@ const CorporateGovernance = () => {
 
                   <div className="space-y-4">
                     {governanceItems.map((item, index) => (
-                  <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }} className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
-                    <button onClick={() => toggleItem(item.id)} className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition-colors duration-200">
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className="flex-shrink-0 bg-teal-100 p-3 rounded-lg">
-                          <FileText className="text-teal-600" size={24} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-lg font-semibold text-slate-800 mb-1">{item.title}</h4>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">{item.year}</span>
-                            <span className="text-xs text-slate-500 flex items-center gap-1">
-                              <Calendar size={12} />
-                              Updated: {item.lastUpdated}
-                            </span>
+                      <motion.div 
+                        key={item.id} 
+                        initial={{ opacity: 0, y: 20 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }} 
+                        className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden"
+                      >
+                        <button 
+                          onClick={() => toggleItem(item.id)} 
+                          className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition-colors duration-200"
+                        >
+                          <div className="flex items-center gap-4 flex-1">
+                            <div className="flex-shrink-0 bg-teal-100 p-3 rounded-lg">
+                              <FileText className="text-teal-600" size={24} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-lg font-semibold text-slate-800 mb-1">{item.title}</h4>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full font-medium">{item.year}</span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <motion.div animate={{ rotate: openItem === item.id ? 180 : 0 }} transition={{ duration: 0.3 }} className="flex-shrink-0 ml-2">
-                        <ChevronDown className="text-slate-400" size={24} />
-                      </motion.div>
-                    </button>
-
-                    <motion.div initial={false} animate={{ height: openItem === item.id ? "auto" : 0, opacity: openItem === item.id ? 1 : 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                      <div className="px-6 pb-5 pt-2 border-t border-slate-200 bg-slate-50">
-                        <p className="text-slate-600 text-sm leading-relaxed mb-4">{item.content}</p>
-                        <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
-                          <span className="flex items-center gap-1">
-                            <FileText size={14} />
-                            {item.fileType}
-                          </span>
-                          <span>•</span>
-                          <span>{item.fileSize}</span>
-                        </div>
-                        <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300 shadow-md hover:shadow-lg font-medium">
-                          <Download size={18} />
-                          Download Document
+                          <motion.div 
+                            animate={{ rotate: openItem === item.id ? 180 : 0 }} 
+                            transition={{ duration: 0.3 }} 
+                            className="flex-shrink-0 ml-2"
+                          >
+                            <ChevronDown className="text-slate-400" size={24} />
+                          </motion.div>
                         </button>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
+
+                        <motion.div 
+                          initial={false} 
+                          animate={{ 
+                            height: openItem === item.id ? "auto" : 0, 
+                            opacity: openItem === item.id ? 1 : 0 
+                          }} 
+                          transition={{ duration: 0.3 }} 
+                          className="overflow-hidden"
+                        >
+                          <div className="px-6 pb-5 pt-2 border-t border-slate-200 bg-slate-50">
+                            <p className="text-slate-600 text-sm leading-relaxed mb-4">{item.content}</p>
+                            <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
+                              <span className="flex items-center gap-1">
+                                <FileText size={14} />
+                                {item.fileType}
+                              </span>
+                              <span>•</span>
+                              <span>{item.fileSize}</span>
+                            </div>
+                            <button 
+                              onClick={() => handleDownload(item.fileName, item.title)}
+                              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300 shadow-md hover:shadow-lg font-medium"
+                            >
+                              <Download size={18} />
+                              Download Document
+                            </button>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} className="mt-12 max-w-5xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.8, duration: 0.6 }} 
+              className="mt-12 max-w-5xl mx-auto"
+            >
               <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 md:p-8 border border-teal-200 shadow-lg">
                 <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-3">Need More Information?</h3>
                 <p className="text-slate-700 leading-relaxed mb-5">

@@ -47,7 +47,7 @@ const DataPrivacyPolicy = () => {
                 />
                 <div>
                   <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                    Data Privacy Policy
+                    Privacy Policy
                   </h1>
                   <p className="text-lg text-accent font-semibold text-gray-800">
                     Metropolitan Insurance Company, Inc.
@@ -71,7 +71,7 @@ const DataPrivacyPolicy = () => {
 
                 <div className="bg-accent/6 p-6 rounded-lg border-l-4 border-accent">
                   <p className="leading-relaxed">
-                    We value your privacy. This Privacy Policy informs you of your choices and our practices regarding any information you provide to us. The use of our services may involve the collection and use of your Information ... By using our services, you agree that we may collect, use and share your Information in accordance with this Privacy Policy, as revised from time to time.
+                    We value your privacy. This Privacy Policy informs you of your choices and our practices regarding any information you provide to us. The use of our services may involve the collection and use of your Information (as defined in the "The Information We Collect and How We Collect It" section below) on our services. It is important for you to understand how this happens and how you may control it, so please read this Privacy Policy carefully. By using our services, you agree that we may collect, use and share your Information in accordance with this Privacy Policy, as revised from time to time.
                   </p>
                 </div>
               </section>
@@ -91,11 +91,12 @@ const DataPrivacyPolicy = () => {
                   We may from time to time revise or add specific instructions, policies and terms to this Privacy Policy. These instructions, policies and terms form part of this Privacy Policy. Where we consider that any changes to this Privacy Policy are reasonably material, we will notify you via our website at{" "}
                   <a href="https://miciph.com/" className="text-accent hover:underline font-semibold" target="_blank" rel="noopener noreferrer">
                     https://miciph.com/
-                  </a>.
+                  </a>{" "}
+                  through direct communication to you, or other means prior to the change becoming effective.
                 </p>
                 <div className="bg-accent/6 p-5 rounded-lg border-l-4 border-accent">
                   <p className="leading-relaxed">
-                    By continuing to use our services after any changes to this Privacy Policy, you are agreeing to the revised Privacy Policy.
+                    By continuing to use our services after any changes to this Privacy Policy, with or without notice from us, you are agreeing to the revised Privacy Policy.
                   </p>
                 </div>
               </section>
@@ -122,10 +123,14 @@ const DataPrivacyPolicy = () => {
                   </h3>
 
                   <p className="leading-relaxed mb-3">
-                    "Personal Information" is any information or combination of information that relates to you, and can be used to identify you. Personal Information may include the following: information you make available to us when you open an account or use our services, such as your:
+                    "Personal Information" is any information or combination of information that relates to you, and can be used to identify you. Personal Information may include the following:
                   </p>
 
-                  <div className="bg-accent/10 p-4 rounded-lg">
+                  <p className="leading-relaxed mb-3">
+                    Information you make available to us when you open an account or use our services, such as your:
+                  </p>
+
+                  <div className="bg-accent/10 p-4 rounded-lg mb-4">
                     <div className="grid md:grid-cols-2 gap-2 text-gray-800">
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></div>
@@ -169,6 +174,18 @@ const DataPrivacyPolicy = () => {
                       </div>
                     </div>
                   </div>
+
+                  <p className="leading-relaxed mb-2">
+                    Information which you make available to our services as you use them, including Shared Information you make available to others through our services and information you store using our services.
+                  </p>
+
+                  <p className="leading-relaxed mb-2">
+                    Shared Information that others using our services make available about you, such as information contained in posts they make and communications they make to you and others using our services.
+                  </p>
+
+                  <p className="leading-relaxed">
+                    Information we collect as you access our website or use our services.
+                  </p>
                 </div>
               </section>
 
@@ -184,8 +201,11 @@ const DataPrivacyPolicy = () => {
                 </div>
                 
                 <div className="bg-accent/6 p-6 rounded-lg border-l-4 border-accent mb-6">
+                  <p className="leading-relaxed mb-3">
+                    The collected signature, full address, email, contact details and other information as listed above will be used in your transactions with <strong>Metropolitan Insurance Company Inc.</strong>
+                  </p>
                   <p className="leading-relaxed">
-                    The collected signature, full address, email, contact details and other information as listed above will be used in your transactions with Metropolitan Insurance Company Inc...
+                    By agreeing to the Terms and Conditions and this Privacy Policy, you are authorizing Metropolitan Insurance Company Inc. to use your submitted information to facilitate transactions in your behalf as deemed authorized by you and such authorization shall extend to third parties with whom we have data sharing agreements.
                   </p>
                 </div>
 
@@ -202,6 +222,9 @@ const DataPrivacyPolicy = () => {
                     <div className="leading-relaxed space-y-2 text-gray-800">
                       <p>• To provide our services and verify your identity.</p>
                       <p>• To approve, facilitate, administer and process applications and transactions; send you statements, billings, notices and other such documents necessary for continued use of our products and services.</p>
+                      <p>• To conduct studies and researches for the purpose of reviewing, developing and improving our products and services.</p>
+                      <p>• To perform profile analysis, behavioral modeling and analytics to understand needs, preferences and market trends to be able to improve and recommend suitable products and services.</p>
+                      <p>• For customer service, security, fraud-detection, archival and backup purposes in connection with the provision of our services.</p>
                     </div>
                   </div>
 
@@ -226,7 +249,7 @@ const DataPrivacyPolicy = () => {
                       <p>• To better understand how you access and use our services, for the purposes of trying to improve our services and to respond to customer desires and preferences, including language and location customization, personalized help and instructions, or other responses to your and other customers usage of our services.</p>
                       <p>• To help us develop our new services and improve our existing services.</p>
                       <p>• To assess the effectiveness of and improve advertising and other marketing and promotional activities on or in connection with our services when your account is subscribed to an official account.</p>
-                      <p>• To allow you to participate in surveys about our products and services. If you participate in a survey, we may request certain personally identifiable information from you. Participation in these surveys is voluntary and you therefore have a choice whether or not to disclose this information.</p>
+                      <p>• To allow you to participate in surveys about our products and services. If you participate in a survey, we may request certain personally identifiable information from you. Participation in these surveys is voluntary and you therefore have a choice whether or not to disclose this information. We may use a third-party service provider to conduct these surveys and such third party service provider will be prohibited from using your personally identifiable information for any other purpose.</p>
                     </div>
                   </div>
 
@@ -448,7 +471,7 @@ const DataPrivacyPolicy = () => {
                     <p className="leading-relaxed">
                       You have the right to ask whether your personal information is being or has been processed. Consequently, you have the right to access such personal data that we process.
                     </p>
-                  </div>
+                    </div>
 
                   <div className="bg-gradient-to-r from-green-50/80 to-green-100/80 backdrop-blur-sm p-5 rounded-lg border-l-4 border-green-600">
                     <h4 className="font-semibold text-gray-900 mb-2 text-lg">Right to object</h4>
@@ -580,13 +603,14 @@ const DataPrivacyPolicy = () => {
                   If you wish to contact us regarding this Privacy Policy or any privacy-related matters, please contact our Data Protection Officer via email at{" "}
                   <a href="mailto:dpo@miciph.com" className="text-white hover:underline font-semibold">
                     dpo@miciph.com
-                  </a>.
+                  </a>{" "}
+                  or via postal mail to Metropolitan Insurance Company Inc. at 3rd Floor The Athenaeum Building, 160 L.P Leviste Street, Salcedo Village, Makati City, Metro Manila, Philippines 1227 (Attention: Data Protection Officer).
                 </p>
                 
                 <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
                   <p className="font-semibold text-lg mb-3 text-white">You may also write to our Data Protection Officers at:</p>
                   <div className="leading-relaxed space-y-1 text-white/90">
-                    <p className="font-semibold">Metropolitan Insurance Company Inc.</p>
+                    <p className="font-semibold text-white">Metropolitan Insurance Company Inc.</p>
                     <p>3rd Floor The Athenaeum Building</p>
                     <p>160 L.P. Leviste Street, Salcedo Village</p>
                     <p>Makati City, Metro Manila, Philippines 1227</p>
