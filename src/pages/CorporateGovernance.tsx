@@ -115,15 +115,16 @@ const CorporateGovernance = () => {
   id: "2024-2",
   name: "MICI 2024 SEC AFS",
   fileName: "2024/MICI 2024 SEC AFS", // Base filename without extension
-  fileType: "PDF (5 parts)",
+  fileType: "PDF (6 parts)",
   fileSize: "111,664 KB",
   isMultiPart: true,
   parts: [
-    "2024/MICI 2024 SEC AFS_part1_pages_1-17.pdf",
-    "2024/MICI 2024 SEC AFS_part2_pages_18-34.pdf",
-    "2024/MICI 2024 SEC AFS_part3_pages_35-51.pdf",
-    "2024/MICI 2024 SEC AFS_part4_pages_52-68.pdf",
-    "2024/MICI 2024 SEC AFS_part5_pages_69-75.pdf"
+    "2024/MICI 2024 SEC AFS_part1_pages_1-13.pdf",
+    "2024/MICI 2024 SEC AFS_part2_pages_14-26.pdf",
+    "2024/MICI 2024 SEC AFS_part3_pages_27-39.pdf",
+    "2024/MICI 2024 SEC AFS_part4_pages_40-52.pdf",
+    "2024/MICI 2024 SEC AFS_part5_pages_53-65.pdf",
+    "2024/MICI 2024 SEC AFS_part6_pages_66-75.pdf"
   ]
 },
       {
