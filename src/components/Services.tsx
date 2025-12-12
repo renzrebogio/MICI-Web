@@ -126,18 +126,26 @@ const Services = () => {
     {
       icon: PawPrint,
       title: "Pet Insurance",
-      description: "Healthcare coverage for your beloved pets",
+      description: "The best treat for your dogs is a healthy and protected life thru an Accident Insurance Plan",
       features: [
-        "Veterinary care",
-        "Emergency treatments",
-        "Routine check-ups",
-        "Surgery coverage",
-        "Medication costs",
-        "Specialist consultations",
-      ],
-      color: "from-yellow-500 to-yellow-600",
-      bgColor: "bg-yellow-50",
+    {
+      section: "Perils Covered",
+      items: [
+        "Accidental Death and Permanent Disablement",
+        "Medical Reimbursement (Accident Related)",
+      ]
     },
+    {
+      section: "Extensions: Coverage for Pet",
+      items: [
+        "Lost Pet Cover (Waiting Period of 90 days)",
+        "Burial Expense (Accident Related)",
+      ]
+    }
+  ],
+  color: "from-yellow-500 to-yellow-600",
+  bgColor: "bg-yellow-50",
+}
   ];
 
   const containerVariants = {
@@ -303,24 +311,52 @@ const Services = () => {
                   </div>
 
                   {/* Features List */}
-                  <div className="space-y-3 mb-8">
-                    {services[selectedService].features.map(
-                      (feature, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-center space-x-3"
-                        >
-                          <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
-                            <Check className="h-4 w-4 text-white" />
-                          </div>
-                          <span className="text-accent">{feature}</span>
-                        </motion.div>
-                      )
-                    )}
-                  </div>
+<div className="space-y-6 mb-8">
+  {Array.isArray(services[selectedService].features[0]) || 
+   typeof services[selectedService].features[0] === 'object' && 
+   services[selectedService].features[0]?.section ? (
+    // Render grouped features with sections (for Pet Insurance)
+    services[selectedService].features.map((group, groupIndex) => (
+      <div key={groupIndex}>
+        <h4 className="font-semibold text-accent text-lg mb-3">
+          {group.section}
+        </h4>
+        <div className="space-y-3 ml-4">
+          {group.items.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-center space-x-3"
+            >
+              <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                <Check className="h-4 w-4 text-white" />
+              </div>
+              <span className="text-accent">{feature}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    ))
+  ) : (
+    // Render regular flat features list (for other insurance types)
+    services[selectedService].features.map((feature, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: index * 0.1 }}
+        className="flex items-center space-x-3"
+      >
+        <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+          <Check className="h-4 w-4 text-white" />
+        </div>
+        <span className="text-accent">{feature}</span>
+      </motion.div>
+    ))
+  )}
+</div>
 
                   {/* CTA Button */}
                   <motion.div
